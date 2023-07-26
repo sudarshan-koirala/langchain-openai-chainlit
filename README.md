@@ -1,5 +1,11 @@
 # langchain-openai-chainlit
-Chat with your documents (pdf, csv, text) using Openai model, LangChain and Chainlit
+Chat with your documents (pdf, csv, text) using Openai model, LangChain and Chainlit.  
+In these examples, we’re going to build an chatbot QA app. We’ll learn how to:
+
+- Upload a document
+- Create vector embeddings from a file
+- Create a chatbot app with the ability to display sources used to generate an answer
+
 
 ### Chat with your documents 🚀
 - [OpenAI model](https://platform.openai.com/docs/models) as Large Language model
@@ -23,12 +29,17 @@ cd langchain-openai-chainlit
    OPENAI_API_KEY=your_openai_api_key
    ```
 
-3. Run the following command in the terminal to install necessary python packages:
+3. Create a virtualenv and activate it
+   ```
+   python3 -m venv .venv && source .venv/bin/activate
+   ```
+
+4. Run the following command in the terminal to install necessary python packages:
    ```
    pip install -r requirements.txt
    ```
 
-4. Run the following command in your terminal to start the chat UI:
+5. Run the following command in your terminal to start the chat UI:
    ```
    chainlit run langchain_openai_chainlit.py -w
    ```

@@ -14,7 +14,10 @@ In these examples, we’re going to build an chatbot QA app. We’ll learn how t
 
 ## System Requirements
 
-You must have Python 3.10 or later installed. Earlier versions of python may not compile.
+You must have Python 3.10 or later installed. Earlier versions of python may not compile.  
+
+When using python 3.10, got the following error message. Need to use python 3.11
+![Alt text](image.png)
 
 ## Steps to Replicate 
 
@@ -34,6 +37,11 @@ cd langchain-openai-chainlit
    python3 -m venv .venv && source .venv/bin/activate
    ```
 
+   If you have python 3.11, then the above command is fine. But, if you have python version less than 3.11. Using conda is easier. First make sure that you have conda installed. Then run the following command.
+   ```
+   conda create -n .venv python=3.11 -y && source activate .venv
+   ```
+
 4. Run the following command in the terminal to install necessary python packages:
    ```
    pip install -r requirements.txt
@@ -49,4 +57,3 @@ cd langchain-openai-chainlit
 
 ## Disclaimer
 This is test project and is presented in my youtube video to learn new stuffs using the openly available resources (models, libraries, framework,etc). It is not meant to be used in production as it's not production ready. You can modify the code and use for your usecases ✌️
-

@@ -41,7 +41,10 @@ cd langchain-openai-chainlit
 
 5. Run the following command in your terminal to start the chat UI:
    ```
-   chainlit run langchain_openai_chainlit.py -w
+   chainlit run pdf_qa.py -w
+   chainlit run text_qa.py -w
+   chainlit run pdf_txt_qa.py -w
+   chainlit run csv_qa.py -w
    ```
 
 ## Disclaimer

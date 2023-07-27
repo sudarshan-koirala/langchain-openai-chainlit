@@ -5,7 +5,7 @@ In these examples, we’re going to build an chatbot QA app. We’ll learn how t
 - Upload a document
 - Create vector embeddings from a file
 - Create a chatbot app with the ability to display sources used to generate an answer
-
+---
 
 ### Chat with your documents 🚀
 - [OpenAI model](https://platform.openai.com/docs/models) as Large Language model
@@ -16,8 +16,11 @@ In these examples, we’re going to build an chatbot QA app. We’ll learn how t
 
 You must have Python 3.10 or later installed. Earlier versions of python may not compile.  
 
-When using python 3.10, got the following error message. Need to use python 3.11
+When using python 3.10, got the following error message. Need to use python 3.11.  
+
 ![Alt text](image.png)
+
+---
 
 ## Steps to Replicate 
 
@@ -54,6 +57,6 @@ cd langchain-openai-chainlit
    chainlit run pdf_txt_qa.py -w
    chainlit run csv_qa.py -w
    ```
-
+---
 ## Disclaimer
 This is test project and is presented in my youtube video to learn new stuffs using the openly available resources (models, libraries, framework,etc). It is not meant to be used in production as it's not production ready. You can modify the code and use for your usecases ✌️

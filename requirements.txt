@@ -7,6 +7,3 @@ PyPDF2
 pypdf
 pandas
 tabulate
-huggingface_hub
-sentence_transformers
-InstructorEmbedding

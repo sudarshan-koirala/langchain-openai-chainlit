@@ -45,7 +45,12 @@ chain_type_kwargs = {"prompt": prompt}
 
 
 @cl.on_chat_start
-async def init():
+async def on_chat_start():
+    # Sending an image with the local file path
+    elements = [
+    cl.Image(name="image1", display="inline", path="./robot.jpeg")
+    ]
+    await cl.Message(content="Hello there, Welcome to AskAnyQuery related to Data!", elements=elements).send()
     files = None
 
     # Wait for the user to upload a file

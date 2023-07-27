@@ -24,7 +24,6 @@ load_dotenv()
 
 OPENAI_API_KEY= os.getenv("OPENAI_API_KEY")
 
-----------------------------------------------------------------------------
 
 # text_splitter and system template
 
@@ -54,10 +53,15 @@ messages = [
 prompt = ChatPromptTemplate.from_messages(messages)
 chain_type_kwargs = {"prompt": prompt}
 
-----------------------------------------------------------------------------
 
 @cl.on_chat_start
-async def init():
+async def on_chat_start():
+
+    # Sending an image with the local file path
+    elements = [
+    cl.Image(name="image1", display="inline", path="./robot.jpeg")
+    ]
+    await cl.Message(content="Hello there, Welcome to AskAnyQuery related to Data!", elements=elements).send()
     files = None
 
     # Wait for the user to upload a PDF file
@@ -109,10 +113,9 @@ async def init():
 
     cl.user_session.set("chain", chain)
 
-----------------------------------------------------------------------------
 
 @cl.on_message
-async def maiin(message):
+async def main(message:str):
 
     chain = cl.user_session.get("chain")  # type: RetrievalQAWithSourcesChain
     cb = cl.AsyncLangchainCallbackHandler(

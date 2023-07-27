@@ -69,6 +69,8 @@ async def on_chat_start():
         files = await cl.AskFileMessage(
             content="Please upload a PDF file to begin!",
             accept=["application/pdf"],
+            max_size_mb=20,
+            timeout=180,
         ).send()
 
     file = files[0]

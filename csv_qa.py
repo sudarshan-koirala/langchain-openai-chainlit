@@ -5,15 +5,19 @@ import chainlit as cl
 import os
 import io
 
-from dotenv import load_dotenv
+# Chainlit fetches env variables from .env automatically
+
+""" from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
 
 OPENAI_API_KEY= os.getenv("OPENAI_API_KEY")
+"""
+
 
 # Create an OpenAI object.
-llm = OpenAI(openai_api_key=OPENAI_API_KEY)
+llm = OpenAI(openai_api_key="OPENAI_API_KEY")
 
 
 def create_agent(data: str, llm):

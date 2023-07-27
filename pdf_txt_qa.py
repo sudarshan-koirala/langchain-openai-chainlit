@@ -9,13 +9,6 @@ from langchain.chat_models import ChatOpenAI
 import chainlit as cl
 from chainlit.types import AskFileResponse
 
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
-
-OPENAI_API_KEY= os.getenv("OPENAI_API_KEY")
-
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 embeddings = OpenAIEmbeddings()

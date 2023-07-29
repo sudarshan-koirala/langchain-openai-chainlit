@@ -13,11 +13,10 @@ import io
 load_dotenv()
 
 OPENAI_API_KEY= os.getenv("OPENAI_API_KEY")
-"""
-
+ """
 
 # Create an OpenAI object.
-llm = OpenAI(openai_api_key="OPENAI_API_KEY")
+llm = OpenAI()
 
 
 def create_agent(data: str, llm):
@@ -36,14 +35,22 @@ async def on_chat_start():
 
     files = None
 
-    # Waits for user to upload csv data
-    while files == None:
+    # Wait for user to upload csv data
+    while files is None:
         files = await cl.AskFileMessage(
-            content="Please upload a csv file to begin!", accept=["text/csv"], max_size_mb= 100
+            content="Please upload a csv file to begin!", 
+            accept=["text/csv"],
+            max_size_mb= 100,
+            timeout = 180,
         ).send()
 
     # load the csv data and store in user_session
     file = files[0]
+
+    msg = cl.Message(content=f"Processing `{file.name}`...")
+    await msg.send()
+
+    # Read csv file with pandas
     csv_file = io.BytesIO(file.content)
     df = pd.read_csv(csv_file, encoding="utf-8")
 
@@ -51,9 +58,9 @@ async def on_chat_start():
     cl.user_session.set('data', df)
 
     # Send response back to user
-    await cl.Message(
-        content=f"`{file.name}` uploaded! Now you ask me anything related to your data"
-    ).send()
+    # Let the user know that the system is ready
+    msg.content = f"Processing `{file.name}` done. You can now ask questions!"
+    await msg.update()
 
 
 @cl.on_message

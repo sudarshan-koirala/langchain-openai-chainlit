@@ -14,7 +14,7 @@ In these examples, we’re going to build an chatbot QA app. We’ll learn how t
 
 ## System Requirements
 
-You must have Python 3.10 or later installed. Earlier versions of python may not compile.  
+You must have Python 3.11 or later installed. Earlier versions of python may not compile.  
 
 When using python 3.10, got the following error message. Need to use python 3.11.  
 
